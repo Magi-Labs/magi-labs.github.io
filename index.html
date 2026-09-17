@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070a11">
+  <meta name="description" content="Magi Labs makes practical open-source software for communication, development, and everyday work.">
+  <title>Magi Labs — Ideas into interfaces</title>
+  <link rel="icon" type="image/svg+xml" href="magi-labs-icon.svg">
+  <style>
+    :root{color-scheme:dark;font-family:Arial,Helvetica,sans-serif;background:#070a11;color:#ecf9f6}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px}a{color:inherit;text-decoration:none}a:focus-visible{outline:2px solid #d5ff65;outline-offset:5px}
+    .scroll-film{height:500vh;position:relative}.stage{height:100vh;min-height:540px;position:sticky;top:0;overflow:hidden;background:#070a11}.film{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#070a11 url('magi-poster.jpg') center/cover no-repeat}.stage:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#070a11bd 0%,transparent 56%),linear-gradient(0deg,#070a11bd 0%,transparent 35%);pointer-events:none}
+    .topbar{position:absolute;z-index:3;top:0;left:0;right:0;padding:27px clamp(22px,4vw,64px);display:flex;justify-content:space-between;align-items:center}.logo{display:inline-flex;align-items:center}.logo img{display:block;width:188px;height:auto}.topbar nav{display:flex;gap:28px;align-items:center;font: .8rem ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}.topbar nav a:hover{color:#d5ff65}.topbar nav a:last-child{border:1px solid #aaffea66;padding:12px 16px}
+    .chapter{position:absolute;z-index:2;bottom:9vh;left:clamp(22px,6vw,94px);max-width:750px;opacity:0;pointer-events:none;color:#fff}.chapter.active{opacity:1}.chapter h1,.chapter h2{font-size:clamp(3.8rem,9vw,9rem);line-height:.88;letter-spacing:-.09em;text-transform:uppercase;margin:0;font-weight:900}.chapter p{font-size:clamp(1rem,1.6vw,1.28rem);line-height:1.5;max-width:530px;color:#fff;margin:22px 0 0}.scroll-cue{position:absolute;z-index:3;bottom:26px;right:clamp(22px,4vw,64px);font:11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.17em;text-transform:uppercase;color:#fff}.progress{position:absolute;z-index:3;bottom:0;left:0;height:3px;background:#fff;width:0}
+    .skip-link{position:absolute;z-index:10;top:-60px;left:20px;background:#d5ff65;color:#071116;padding:12px 18px;font-weight:700}.skip-link:focus{top:16px}.content{background:#edf5f0;color:#071116;padding:0 clamp(22px,6vw,94px)}.content section{scroll-margin-top:24px}.section-label{font:700 .75rem ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:#216768;white-space:nowrap}.intro{display:grid;grid-template-columns:minmax(145px,1fr) minmax(0,3fr);gap:clamp(30px,5vw,90px);padding:clamp(100px,13vw,190px) 0 clamp(110px,14vw,200px);border-bottom:1px solid #a7bdb5}.intro .section-label{padding-top:13px}.intro h2{max-width:950px;margin:0;font-size:clamp(3.2rem,6.1vw,7rem);letter-spacing:-.075em;line-height:1.02;font-weight:800}.intro h2 span{color:#147a7b}.intro p{max-width:650px;margin:35px 0 0;color:#3b5957;font-size:clamp(1.1rem,1.5vw,1.35rem);line-height:1.65}.intro-note{display:flex;gap:16px;align-items:center;margin-top:55px;font:700 .72rem ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.15em;text-transform:uppercase;color:#216768}.intro-note:before{content:"";width:44px;height:1px;background:#216768}.work{padding:clamp(90px,10vw,145px) 0 clamp(120px,12vw,170px)}.work-head{display:grid;grid-template-columns:1fr minmax(260px,380px);align-items:end;gap:50px;margin-bottom:65px}.work-head h2{font-size:clamp(3.6rem,7vw,7.5rem);letter-spacing:-.08em;line-height:.95;margin:22px 0 0;font-weight:800}.work-head p{line-height:1.65;color:#3b5957;font-size:1.08rem;margin:0 0 4px}.work-note{font-size:.85rem;line-height:1.5;color:#59736d;margin:30px 0 0}
+    .project{border-top:1px solid #a7bdb5;padding:34px 20px 34px 0;display:grid;grid-template-columns:minmax(200px,1.15fr) minmax(260px,1fr) 52px;align-items:center;gap:30px;transition:background .2s,padding .2s,color .2s}.project:last-of-type{border-bottom:1px solid #a7bdb5}.project:hover,.project:focus-visible{background:#dff0e8;padding-left:20px;color:#075f63}.project-meta{display:block;margin-bottom:12px;color:#34736e;font:700 .69rem ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.15em;text-transform:uppercase}.project h3{font-size:clamp(2.2rem,3.6vw,4.4rem);letter-spacing:-.07em;margin:0;line-height:1;font-weight:800}.project p{font-size:1.06rem;line-height:1.55;margin:0;color:#355250;max-width:430px}.project .arrow{display:grid;place-items:center;width:48px;height:48px;border:1px solid #8ea9a1;border-radius:50%;font-size:1.5rem;line-height:1;transition:background .2s,color .2s,transform .2s}.project:hover .arrow,.project:focus-visible .arrow{background:#071116;color:#d5ff65;transform:translate(3px,-3px)}
+    .end{background:#071116;color:#e9f2ed;padding:70px clamp(22px,6vw,94px) 28px;scroll-margin-top:0}.end-main{display:grid;grid-template-columns:1fr minmax(280px,390px);align-items:start;gap:55px;padding-bottom:76px}.footer-brand img{display:block;width:230px;max-width:100%;height:auto}.footer-brand p{color:#b8cec7;font-size:1.12rem;line-height:1.55;max-width:360px;margin:24px 0 0}.footer-actions{display:flex;flex-direction:column;align-items:flex-start}.footer-actions .section-label{color:#a7d1c8}.footer-actions p{color:#b8cec7;font-size:1rem;line-height:1.55;margin:17px 0 15px}.footer-actions a{display:inline-flex;align-items:center;gap:40px;border-bottom:1px solid #a7d1c8;padding:8px 0 12px;font-size:1.16rem;font-weight:700;transition:color .2s,border-color .2s}.footer-actions a:hover{color:#79e9d4;border-color:#79e9d4}.end-bottom{border-top:1px solid #7a999557;padding-top:25px;display:flex;justify-content:space-between;gap:20px;font:12px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#afc4bc}.end-bottom a:hover{color:#fff}
+    @media(min-width:801px) and (max-aspect-ratio:4/3){.chapter{bottom:8vh;max-width:900px}.chapter h1,.chapter h2{font-size:clamp(4rem,8vw,7rem)}}
+    @media(max-width:800px){.scroll-film{height:400vh}.stage{min-height:500px}.stage:after{background:linear-gradient(0deg,#070a11ed 0%,transparent 65%)}.film{object-position:70% center}.topbar nav a:first-child{display:none}.chapter{bottom:12vh;max-width:calc(100% - 44px)}.chapter h1,.chapter h2{font-size:clamp(3.4rem,12vw,6rem)}.intro{display:block;padding:105px 0 115px}.intro h2{margin-top:30px}.intro p{margin-top:28px}.intro-note{margin-top:38px}.work-head{display:block;margin-bottom:45px}.work-head p{margin-top:25px}.project{grid-template-columns:1fr 48px;gap:14px;padding:28px 0}.project p{grid-column:1/2;grid-row:2}.project .arrow{grid-column:2;grid-row:1 / 3}.end-main{grid-template-columns:1fr;align-items:start;gap:48px;padding-bottom:65px}}@media(max-width:500px){.topbar{padding:20px 22px}.topbar nav{font-size:.69rem}.logo img{width:145px}.chapter h1,.chapter h2{font-size:3.75rem}.chapter p{font-size:1rem}.intro h2{font-size:clamp(2.8rem,11vw,4rem)}.work-head h2{font-size:clamp(3.3rem,12vw,5rem)}.project h3{font-size:2.45rem}.project p{font-size:1rem}.end{padding-top:62px}.footer-brand img{width:205px}.end-bottom{flex-direction:column;gap:15px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.chapter,.project,.project .arrow,.footer-actions a{transition:none}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#work">Skip to projects</a>
+  <main>
+    <section class="scroll-film" id="top" aria-label="Magi Labs introduction">
+      <div class="stage">
+        <canvas class="film" id="filmCanvas" width="640" height="360" aria-hidden="true"></canvas>
+        <header class="topbar"><a class="logo" href="#top" aria-label="Magi Labs, back to top"><img src="magi-labs-logo-dark.svg" alt="" width="315" height="64"></a><nav aria-label="Main navigation"><a href="#work">Selected work</a><a href="#contact">Contact</a></nav></header>
+        <div class="chapter active" data-start-frame="34" data-end-frame="68"><h1>A thought.</h1><p>A question. A rough edge. An idea that stays with you.</p></div>
+        <div class="chapter" data-start-frame="68" data-end-frame="128"><h2>A sketch.</h2><p>Follow the problem until the shape becomes clear.</p></div>
+        <div class="chapter" data-start-frame="128" data-end-frame="194"><h2>A tool.</h2><p>Built to be used, shared, and improved.</p></div>
+        <div class="progress" id="progress"></div>
+      </div>
+    </section>
+    <div class="content">
+      <section class="intro" aria-labelledby="intro-title"><div class="section-label">What we believe</div><div><h2 id="intro-title">Good software starts with a <span>real problem.</span></h2><p>Magi Labs turns everyday friction into tools people can actually use. We follow ideas from the first question through the rough drafts and into working software.</p><div class="intro-note">Curiosity, made useful</div></div></section>
+      <section class="work" id="work" aria-labelledby="work-title"><div class="work-head"><div><div class="section-label">Selected work</div><h2 id="work-title">Out in<br>the world.</h2></div><p>Small, focused projects for communication, development, and working with AI. Explore the code and see what each one does.</p></div>
+        <a class="project" href="https://github.com/DeepakSilaych/Magio" target="_blank" rel="noopener noreferrer"><div><span class="project-meta">Communication</span><h3>Magio</h3></div><p>Gmail read receipts with a self-hosted tracking server and dashboard.</p><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="project" href="https://github.com/DeepakSilaych/sess" target="_blank" rel="noopener noreferrer"><div><span class="project-meta">Developer tools</span><h3>sess</h3></div><p>SSH terminals you can detach from and reconnect to later.</p><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="project" href="https://github.com/DeepakSilaych/relay" target="_blank" rel="noopener noreferrer"><div><span class="project-meta">Agent workflows</span><h3>Relay</h3></div><p>Persistent terminal workspaces for coding agents across repositories.</p><span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="project" href="https://github.com/DeepakSilaych/livemcp" target="_blank" rel="noopener noreferrer"><div><span class="project-meta">Browser tooling</span><h3>LiveMCP</h3></div><p>Give an AI agent access to Chrome tabs, network activity, and console output.</p><span class="arrow" aria-hidden="true">↗</span></a>
+      </section>
+    </div>
+    <footer class="end" id="contact"><div class="end-main"><div class="footer-brand"><img src="magi-labs-logo-dark.svg" alt="Magi Labs" width="315" height="64"><p>Ideas made into tools people can use.</p></div><div class="footer-actions"><span class="section-label">Get in touch</span><p>Have a question or idea for Magi Labs? Start a public conversation on GitHub. For a bug in a specific project, use that project's issue tracker. A GitHub account is needed to post.</p><a href="https://github.com/Magi-Labs/.github/issues/new" target="_blank" rel="noopener noreferrer">Open a public issue <span aria-hidden="true">↗</span></a></div></div><div class="end-bottom"><span>© Magi Labs</span><a href="https://github.com/Magi-Labs" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#top">Back to top ↑</a></div></footer>
+  </main>
+  <script>
+    (()=>{
+      const section=document.querySelector('.scroll-film');
+      const visual=document.getElementById('filmCanvas');
+      const ctx=visual.getContext('2d',{desynchronized:true});
+      const chapters=[...document.querySelectorAll('.chapter')];
+      const bar=document.getElementById('progress');
+      const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+      const sheets=new Array(10);
+      let ticking=false,lastFrame=-1,targetFrame=34;
+      function paint(frame){
+        const image=sheets[Math.floor(frame/20)];
+        if(!image||!image.complete||!image.naturalWidth)return;
+        const local=frame%20;
+        ctx.drawImage(image,(local%5)*640,Math.floor(local/5)*360,640,360,0,0,640,360);
+        lastFrame=frame;
+        chapters.forEach(el=>el.classList.toggle('active',frame>=Number(el.dataset.startFrame)&&frame<Number(el.dataset.endFrame)));
+      }
+      function loadSheet(index){
+        const image=new Image();
+        image.decoding='async';
+        image.onload=()=>{if(Math.floor(targetFrame/20)===index)paint(targetFrame)};
+        image.src='sprites/sheet-'+String(index).padStart(2,'0')+'.jpg';
+        sheets[index]=image;
+      }
+      function update(){
+        ticking=false;
+        const max=section.offsetHeight-innerHeight;
+        const p=Math.max(0,Math.min(1,-section.getBoundingClientRect().top/Math.max(max,1)));
+        bar.style.width=(p*100)+'%';
+        targetFrame=reduced.matches?34:Math.min(193,Math.round(34+p*159));
+        if(targetFrame!==lastFrame)paint(targetFrame);
+      }
+      function request(){if(!ticking){requestAnimationFrame(update);ticking=true}}
+      addEventListener('scroll',request,{passive:true});
+      addEventListener('resize',request);
+      reduced.addEventListener('change',request);
+      loadSheet(1);
+      for(let i=0;i<10;i++)if(i!==1)loadSheet(i);
+      request();
+    })();
+  </script>
+</body>
+</html>
